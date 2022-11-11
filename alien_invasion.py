@@ -49,4 +49,4 @@ if __name__ == "__main__":
     my_game = AlienInvasion()
     my_game.run_game()
 ~                                                                                            
-~                                     
+~                               
