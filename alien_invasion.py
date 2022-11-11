@@ -32,7 +32,8 @@ class AlienInvasion:
         self.ship.blitme()
         # Make teh most recently drawn screen
         pygame.display.flip()
-
+        
+        
 
 
     def check_events(self):
