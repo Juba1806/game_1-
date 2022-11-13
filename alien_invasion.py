@@ -13,27 +13,30 @@ class AlienInvasion:
         pygame.init()
         self.simo = Settings()
 
-        self.screen = pygame.display.set_mode((self.simo.screen_width, self.simo.screen_height))
+        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
+
+
 
     def run_game(self):
         """Start the main loop for the game."""
         while True:
             # Watch for keyboard and mouse event
             self.check_events()
+            self.ship.update()
             self.update_screen()
+
 
     def update_screen(self):
         """Update images on teh screen, and flip to the new screen."""
 
         self.screen.fill(self.simo.bg_color)
         self.ship.blitme()
-        # Make teh most recently drawn screen
+        # Make the most recently drawn screen
         pygame.display.flip()
-        
-        
+
 
 
     def check_events(self):
@@ -43,10 +46,34 @@ class AlienInvasion:
             if event.type == pygame.QUIT:
                 sys.exit()
 
+            elif event.type == pygame.KEYDOWN:
+                self.check_KEYDOWN(event)
+
+            elif event.type == pygame.KEYUP:
+                self.check_KEYUP(event)
+    def check_KEYDOWN(self, event):
+        """Check when the player press a bottom  """
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = True
+
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = True
+
+        elif event.key == pygame.K_q:
+            sys.exit()
+
+
+    def check_KEYUP(self,event):
+        """check the when the player let go the bottoms"""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False
+
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
+
 
 if __name__ == "__main__":
     # Make a game instance, and run the game
     my_game = AlienInvasion()
     my_game.run_game()
-~                                                                                            
-~                               
+                                     
