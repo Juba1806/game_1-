@@ -51,6 +51,8 @@ class AlienInvasion:
 
             elif event.type == pygame.KEYUP:
                 self.check_KEYUP(event)
+                
+                
     def check_KEYDOWN(self, event):
         """Check when the player press a bottom  """
         if event.key == pygame.K_RIGHT:
