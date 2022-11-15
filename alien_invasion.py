@@ -28,6 +28,7 @@ class AlienInvasion:
             self.ship.update()
             self.update_screen()
 
+            
 
     def update_screen(self):
         """Update images on teh screen, and flip to the new screen."""
