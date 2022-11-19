@@ -12,17 +12,17 @@ class Ship:
 
         # Load the ship image and get its rect
        # self.image = pygame.image.load("rocket_ship.bmp")
-
+        
         image = pygame.image.load("rocket_ship.bmp")
         self.image = pygame.transform.scale(image,(200,160))
         self.rect = self.image.get_rect()
 
         # Start each new shit at the bottom center of the screen.
         self.rect.midbottom = self.screen_rect.midbottom
-
+        
         # Store a decimal value for the ship's horizontal position.
         self.x = float(self.rect.x)
-
+        
         # Moving the flag 
         self.moving_right = False
         self.moving_left = False
